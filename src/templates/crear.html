@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Crear{% endblock titulo %}
+
+{% block contenido %}
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Guardar">
+</form>
+<a href="{% url 'autores:inicio' %}" style="margin:10px">
+    <button type="button" class="btn btn-primary" style="margin-top:10px;">
+        <img src="{% static 'img/atras.svg' %}" width="42px" style="margin:4px;">
+    </button>
+  </a>
+
+{% endblock contenido %}

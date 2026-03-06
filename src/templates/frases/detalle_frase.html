@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+Detalle de {{frase}}
+{% endblock titulo %}
+
+{% block contenido %}
+
+<div class="card" style="width: 38rem; margin-left: 10px;">
+    <div class="card-body">
+      <h5 class="card-title">Autor: {{frase.autor}}</h5>
+      <h6><span class="badge text-bg-secondary">Frase:</span></h6>
+      <p>{{frase.frase}}</p>
+      <span class="badge text-bg-info">Fecha de la frase: {{frase.fecha_frase}}</span>
+      
+    </div>
+  </div>
+  <a href="{% url 'frases:listar_frases' %}" style="margin:10px">
+    <button type="button" class="btn btn-primary" style="margin-top:10px;">
+        <img src="{% static 'img/atras.svg' %}" width="42px" style="margin:4px;">
+    </button>
+  </a>
+
+{% endblock contenido %}

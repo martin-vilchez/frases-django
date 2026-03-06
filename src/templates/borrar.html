@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}   
+
+{% block titulo %}
+
+Confirmar borrado
+
+{% endblock titulo %}
+
+{% block contenido %}
+
+<form method="post">{% csrf_token %}
+    <p>Esta seguro que quiere borrar "{{ object }}"?</p>
+    {{ form }}
+    <input type="submit" value="Confirmar">
+</form>
+<a href="{% url 'autores:inicio' %}" style="margin:10px">
+    <button type="button" class="btn btn-primary" style="margin-top:10px;">
+        <img src="{% static 'img/atras.svg' %}" width="42px" style="margin:4px;">
+    </button>
+  </a>
+{% endblock contenido %}

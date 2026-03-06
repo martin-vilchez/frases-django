@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+
+Frases de programación
+
+{% endblock titulo %}
+
+{% block contenido %}
+
+<ul class="list-group" style="margin:10px;">
+  
+  <li class="list-group-item list-group-item-primary">
+    <h1 class="display-2 text-center">Frases de Programación</h1></li>
+    <li class="list-group-item list-group-item-info">
+    <h1 class="display-6" style="margin-left:2px;">Sobre el proyecto</h1>
+    <p class="lead" style="margin:10px;">
+      Desarrollado con Django, "Frases de Programación" nació con la idea de sacar una sonrisa o hacernos reflexionar mientras debuggeamos a las tres de la mañana, además, es un homenaje a la creatividad y el esfuerzo de quienes hacemos magia con teclados, transformando ideas en código.
+    </p> 
+  </li>
+  <li class="list-group-item list-group-item-warning">
+    <h1 class="display-6" style="margin-left:2px;">Sobre mi</h1>
+    <p class="lead" style="margin:10px;">
+      Soy Martín Vilchez, tecnico y profesor apasionado por el código y la enseñanza de la programación.
+    </p> 
+
+
+
+  </li>
+
+</ul>
+
+<p>{{ user.is_staff }}</p>
+
+{% endblock contenido %}

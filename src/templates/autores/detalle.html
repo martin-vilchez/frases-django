@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Detalle de {{autor}}
+{% endblock titulo %}
+
+{% block contenido %}
+
+<div class="card" style="width: 95%;">
+    <div class="card-body">
+      <h1 class='display-4'><span class="badge text-bg-success">Nombre Completo:</span> {{autor.nombre}} {{autor.apellido}}</h1>
+      <h1 class='display-5'><span class="badge text-bg-warning">Nacionalidad: </span> {{autor.nacionalidades}}</h1>
+      <h1 class='display-6'><span class="badge text-bg-info">ID de autor:</span> {{autor.id}}</h1>
+    </div>
+  </div>
+  <a href="{% url 'autores:listar' %}">
+    <button type="button" class="btn btn-primary" style="margin-top:10px;">
+        <img src="{% static 'img/atras.svg' %}" width="42px" style="margin:4px;">
+    </button>
+  </a>
+
+{% endblock contenido %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Listado de Frases{% endblock titulo %}
+
+{% block contenido %}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Detalle</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Frase</th>
+            <th scope="col">Fecha Frase</th>
+            <th scope="col">Activo</th>
+            <th scope="col">Modificar</th>
+            <th scope="col">Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for frase in lista_frases  %}
+        
+            <tr>
+                <th scope="row">
+                    <a href="{% url 'frases:detalle_frase' frase.id %}">
+                        <img src="{% static 'img/info.png' %}" width="32px">
+                    </a>
+                </th>
+
+                <td>{{frase.autor}}</td>
+                <td>{{frase.frase}}</td>
+                <td>{{frase.fecha_frase}}</td>
+
+
+                <td>
+                    <a href="{% url 'frases:modificar_activo' frase.pk %}">
+                {% if frase.visible %}
+                        <img src="{% static 'img/check.svg' %}" alt="si" width="32px">
+                {% else %}
+                        <img src="{% static 'img/nocheck.svg' %}" alt="no" width="32px">
+                {% endif %}
+                    </a>
+                </td>
+
+                <td>
+                    <a href="{% url 'frases:modificar' frase.id %}">
+                        <img src="{% static 'img/edit.png' %}" alt="modificar" width="32px">
+                    </a>
+                </td>
+
+
+                <td>
+                    <a href="#" >
+                    <img src="{% static 'img/borrar.svg' %}" alt="borrar" width="32px">
+                </td>
+
+            </tr>
+            {% endfor %}
+    </tbody>
+
+</table>
+{% endblock contenido %}

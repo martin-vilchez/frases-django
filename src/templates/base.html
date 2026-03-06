@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block titulo %}
+        {% endblock titulo %}
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin-bottom:10px;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'autores:inicio' %}">Frases de Programación</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Autores
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'autores:listar' %}">Todos</a></li>
+                  <li><a class="dropdown-item" href="{% url 'autores:autores_visibles' %}">Activos</a></li>
+                  <li><a class="dropdown-item" href="{% url 'autores:autores_no_visibles' %}">No Activos</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'autores:crear' %}">Agregar Autor</a></li>
+                  <li><a class="dropdown-item" href="{% url 'autores:listar_json' %}">Ver JSON</a></li>
+                </ul>
+                
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Frases
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'frases:listar_frases' %}">Todas</a></li>
+                  <li><a class="dropdown-item" href="{% url 'frases:frases_visibles' %}">Activas</a></li>
+                  <li><a class="dropdown-item" href="{% url 'frases:frases_no_visibles' %}">No Activas</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'frases:crear' %}">Agregar Frase</a></li>
+                  <li><a class="dropdown-item" href="{% url 'frases:listar_json' %}">Ver JSON</a></li>
+                </ul>
+                
+              
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    {% block contenido %}
+    {% endblock contenido %}
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  </body>
+</html>

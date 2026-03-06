@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Listado de Autores
+{% endblock titulo %}
+
+{% block contenido %}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Detalle</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Nacionalidad</th>
+            <th scope="col">Nacimiento</th>
+            <th scope="col">Fallecimiento</th>
+            <th scope="col">Activo</th>
+            <th scope="col">Modificar</th>
+            <th scope="col">Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for autor in autores %}
+            <tr>
+                <th scope="row">
+                    <a href="{% url 'autores:detalle' autor.id %}">
+                        <img src="{% static 'img/info.png' %}" width="32px">
+                    </a>
+                </th>
+
+                <td>{{autor.nombre}}</td>
+                <td>{{autor.apellido}}</td>
+                <td>{{autor.nacionalidades}}</td>
+                <td>{{autor.fecha_nacimiento}}</td>
+                <td>{{autor.fecha_fallecimiento}}</td>
+
+
+                <td>
+                    <a href=" {% url 'autores:modificar_activo' autor.id %}">
+                {% if autor.activo %}
+                        <img src="{% static 'img/check.svg' %}" alt="si" width="32px">
+                {% else %}
+                        <img src="{% static 'img/nocheck.svg' %}" alt="no" width="32px">
+                {% endif %}
+                    </a>
+                </td>
+
+                <td>
+                    <a href="{% url 'autores:modificar' autor.id %}" >
+                    <img src="{% static 'img/edit.png' %}" alt="modificar" width="32px">
+                    </a>
+                </td>
+
+
+                <td>
+                    <a href="{% url 'autores:borrar' autor.id %}" >
+                    <img src="{% static 'img/borrar.svg' %}" alt="borrar" width="32px">
+                    </a>
+                </td>
+
+            </tr>
+
+        {% endfor %}    
+  
+</table>
+
+{% endblock contenido %}
