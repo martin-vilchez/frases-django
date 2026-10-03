@@ -11,7 +11,7 @@ from .views import (
 app_name = 'autores'
 
 urlpatterns = [
-    path('', views.inicio, name='inicio'),
+    path('home/', views.inicio, name='inicio'),
     path('listar/', views.listar_autores, name='listar'),
     path('detalle/<int:id>/', views.detalle_autor, name='detalle'),
     path('borrar/<int:pk>/', AutoresDeleteView.as_view(), name='borrar'),
